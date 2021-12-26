@@ -174,7 +174,7 @@ echo -e "Node RPC port: $GREEN$COS_PORT_RPC$ST"
 echo -e "Node moniker: $GREEN$moniker$ST"
 echo -e "Node operator address: $GREEN$COS_VALOPER$ST"
 
-repo="$HOME/mon_ixo"
+repo="$HOME/mon_IXO"
 echo -e "\nClone monitoring project repo to: ${repo}"
 # if ! [ -d $repo ]
 # then

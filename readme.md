@@ -136,7 +136,7 @@ Status can be not ok with default Telegraf's config. Next steps will fix it.
 Clone this project repo and copy variable script template
 ```
 git clone https://github.com/svv28/mon_IXO.git
-cd mon_ixo
+cd mon_IXO
 cp mon_var_template.sh mon_var.sh
 nano mon_var.sh
 ```
