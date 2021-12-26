@@ -32,12 +32,12 @@ echo "# Global Agent Configuration
 [[inputs.diskio]]
 # Output Plugin InfluxDB
 [[outputs.influxdb]]
-  database = \"evmosmetricsdb\"
+  database = \"ixometricsdb\"
   urls = [ \"${mon_serv_url}\" ] # example http://yourownmonitoringnode:8086
   username = \"${mon_serv_username}\" # your database username
   password = \"${mon_serv_passwd}\" # your database user's password
 [[inputs.exec]]
-  commands = [\"sudo su -c ${mon_evmos_path} -s /bin/bash ${user}\"] # change home and username to the useraccount your validator runs at
+  commands = [\"sudo su -c ${mon_ixo_path} -s /bin/bash ${user}\"] # change home and username to the useraccount your validator runs at
   interval = \"15s\"
   timeout = \"5s\"
   data_format = \"influx\"
@@ -65,7 +65,7 @@ sudo apt -y install telegraf
 sudo systemctl enable --now telegraf
 sudo systemctl is-enabled telegraf
 # systemctl status telegraf
-# make the telegraf user sudo and adm to be able to execute scripts as evmos user
+# make the telegraf user sudo and adm to be able to execute scripts as IXO user
 sudo adduser telegraf sudo
 sudo adduser telegraf adm
 sudo -- bash -c 'echo "telegraf ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers'
@@ -101,10 +101,20 @@ echo -e "$GREEN _   _           _     ______ _____
 |_| \_|\___/ \__,_|\___/_/   |____/ $ST"
 }
 
+function showProNodesLogo {
+echo -e "$RED ____  ____   ___        _   _  ___  ____  _____ ____   ____ ___  __  __ 
+|  _ \|  _ \ / _ \      | \ | |/ _ \|  _ \| ____/ ___| / ___/ _ \|  \/  |
+| |_) | |_) | | | |_____|  \| | | | | | | |  _| \___ \| |  | | | | |\/| |
+|  __/|  _ <| |_| |_____| |\  | |_| | |_| | |___ ___) | |__| |_| | |  | |
+|_|   |_| \_ \\___/      |_| \_|\___/|____/|_____|____(_)____\___/|_|  |_|$ST"
+}
+
+
 showNode75Logo
+showProNodesLogo
 sleep 1s
 user=$(whoami)
-echo -e "\nThis script will install EVMOS monitoring tools on your server for user $GREEN${user}$ST"
+echo -e "\nThis script will install IXO monitoring tools on your server for user $GREEN${user}$ST"
 echo -ne "Continue? (y/n):"
 until [ -n  "$item" ]
 do
@@ -126,22 +136,22 @@ echo -e "Install Telegarf agent:"
 installTelegraf
 
 sleep 1s
-path_to_config="$HOME/.evmosd/config/config.toml"
-echo -e "\nTry to get EVMOS node info from $path_to_config"
+path_to_config="$HOME/.ixod/config/config.toml"
+echo -e "\nTry to get IXO node info from $path_to_config"
 COS_PORT_RPC=$( seachRPC $path_to_config )
 sleep 1s
 
 until [ -n "$COS_PORT_RPC" ]
 do 
     echo -e "Can't parse configuration file $REDpath_to_config$ST"
-    echo -e "Type correct path to evmos configuration file (../config/config.toml) or press Ctrl+C for exit:"
+    echo -e "Type correct path to IXO configuration file (../config/config.toml) or press Ctrl+C for exit:"
     read path_to_config
     COS_PORT_RPC=$( seachRPC $path_to_config )
 done
-echo -e "Successfully parse EVMOS configuration file."
+echo -e "Successfully parse IXO configuration file."
 
 cd $HOME
-COS_BIN_NAME=$(which evmosd)
+COS_BIN_NAME=$(which ixod)
 
 echo -e "Try get data from node"
 status=$(curl -s localhost:$COS_PORT_RPC/status)
@@ -164,12 +174,12 @@ echo -e "Node RPC port: $GREEN$COS_PORT_RPC$ST"
 echo -e "Node moniker: $GREEN$moniker$ST"
 echo -e "Node operator address: $GREEN$COS_VALOPER$ST"
 
-repo="$HOME/mon_evmos"
+repo="$HOME/mon_ixo"
 echo -e "\nClone monitoring project repo to: ${repo}"
 # if ! [ -d $repo ]
 # then
 #   echo "Clone repository"
-#   git clone https://github.com/shurinov/mon_evmos.git
+#   git clone https://github.com/svv28/mon_IXO.git
 # else
 #   echo "Repository exist. Stash local changes and pull"
 #   cd $repo
@@ -180,7 +190,7 @@ echo -e "\nClone monitoring project repo to: ${repo}"
 
 echo -e "Create $repo/var.sh with node settings"
 echo "
-#EVMOS monitoring variables for node $moniker
+#IXO monitoring variables for node $moniker
 COS_BIN_NAME=${COS_BIN_NAME}
 COS_PORT_RPC=${COS_PORT_RPC}
 COS_VALOPER=${COS_VALOPER}
@@ -228,8 +238,8 @@ case "$item" in
 esac
 done
 
-mon_evmos_path="${repo}/monitor.sh"
+mon_ixo_path="${repo}/monitor.sh"
 updateTelegrafConfig /etc/telegraf
-echo -e "EVMOS monitoring tools was successfully install/upgrade. You could check telegraf logs: \"sudo journalctl -u telegraf -f\""
-echo -e "Project github: https://github.com/shurinov/mon_evmos.git"
+echo -e "IXO monitoring tools was successfully install/upgrade. You could check telegraf logs: \"sudo journalctl -u telegraf -f\""
+echo -e "Project github: https://github.com/svv28/mon_IXO.git"
 echo -e "Visit your Grafana dashboard: $(echo ${mon_serv_url} | grep -oP '(?<=)(http://\d+.\d+.\d+.\d+:)(?=\d+)')3000"

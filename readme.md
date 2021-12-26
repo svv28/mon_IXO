@@ -1,10 +1,10 @@
-# EVMOS node monitoring tool
+# IXO node monitoring tool
 
 To monitor you node your should have installed and configured:
 On node server:
-* [EVMOS node](https://evmos.dev/guides/validators/setup.html) which should be configured (correct moniker, validator key, network ports setup)
+* [IXO node](https://github.com/ixofoundation/genesis/blob/master/impacthub-3/README_INSTALL.md) which should be configured (correct moniker, validator key, network ports setup)
 * [Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/)
-* [mon_evmos](https://github.com/shurinov/mon_evmos) scripts set
+* [mon_ixo](https://github.com/svv28/mon_IXO) scripts set
 
 On monitoring server:
 * [InfluxDB](https://www.influxdata.com/products/influxdb/)
@@ -36,11 +36,11 @@ sudo systemctl status influxdb
 Setup database (change the passwords given in the example on more secure ones):
 ```
 influx
-> create database evmosmetricsdb
+> create database ixometricsdb
 > create user metrics with password 'password'
-> grant WRITE on evmosmetricsdb to metrics
+> grant WRITE on ixometricsdb to metrics
 > create user grafana with password 'other_password'
-> grant READ on evmosmetricsdb to grafana
+> grant READ on ixometricsdb to grafana
 ```
 
 Keep database user and password in order to use it later for agent configuration. Write it. 
@@ -80,25 +80,25 @@ Add data source InfluxDB with the following settings:
 | HTTP             |                       |
 | URL              | http://localhost:8086 |
 | InfluxDB Details |                       |
-| Database         | evmosmetricsdb         |
+| Database         | ixometricsdb         |
 | User             | grafana               |
 
 Save datasource settings 
 
-Import [json file](https://raw.githubusercontent.com/shurinov/mon_evmos/main/mon_evmos-grafana-dashboard.json) from this repo and save your dashboard.
+Import [json file](https://raw.githubusercontent.com/svv28/mon_IXO/main/mon_ixo-grafana-dashboard.json) from this repo and save your dashboard.
 
 ### Installation on a node
 
 #### By fast installation script
 
 You can use fast installation script
-IMPORTANT: You sholud to run the script under the user where it is installed Evmos node.
+IMPORTANT: You sholud to run the script under the user where it is installed IXO node.
 
-Don't use **sudo** if EVMOS-user is not a **root** 
+Don't use **sudo** if IXO-user is not a **root** 
 ```
-wget https://raw.githubusercontent.com/shurinov/mon_evmos/main/mon_install.sh
-chmod +x mon_install.sh
-./mon_install.sh
+wget https://raw.githubusercontent.com/svv28/mon_IXO/main/install.sh
+chmod +x install.sh
+./install.sh
 ```
 It will install telegraf agent, clone project repo and extract your node data as MONIKER, VALOPER ADDR, RPC PORT.
 You should answer some questions about your monitoring service from part **Monitoring server installation**
@@ -122,7 +122,7 @@ sudo apt -y install telegraf
 sudo systemctl enable --now telegraf
 sudo systemctl is-enabled telegraf
 
-# make the telegraf user sudo and adm to be able to execute scripts as Evmos user
+# make the telegraf user sudo and adm to be able to execute scripts as IXO user
 sudo adduser telegraf sudo
 sudo adduser telegraf adm
 sudo -- bash -c 'echo "telegraf ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers'
@@ -135,16 +135,16 @@ Status can be not ok with default Telegraf's config. Next steps will fix it.
 
 Clone this project repo and copy variable script template
 ```
-git clone https://github.com/shurinov/mon_evmos.git
-cd mon_evmos
+git clone https://github.com/svv28/mon_IXO.git
+cd mon_ixo
 cp mon_var_template.sh mon_var.sh
 nano mon_var.sh
 ```
 
 Insert your parameters to **mor_var.sh**:
-* full path to evmosd binary to COS_BIN_NAME ( check ```which evmosd```)
-* node PRC port to COS_PORT_RPC ( check in file ```path_to_evmos_node_config/config/config.toml```)
-* node validator address to COS_VALOPER ( like ```evmosvaloper********```)
+* full path to ixo binary to COS_BIN_NAME ( check ```which ixod```)
+* node PRC port to COS_PORT_RPC ( check in file ```path_to_ixo_node_config/config/config.toml```)
+* node validator address to COS_VALOPER ( like ```ixovaloper********```)
 
 Save changes in mon_var.sh and enable execution permissions:
 
@@ -181,12 +181,12 @@ Copy it to config and paste your server name (to do so it is convenient to use t
 [[inputs.diskio]]
 # Output Plugin InfluxDB
 [[outputs.influxdb]]
-  database = "evmosmetricsdb"
+  database = "ixometricsdb"
   urls = [ "MONITORING_SERV_URL:PORT" ] # example http://yourownmonitoringnode:8086
   username = "DB_USERNAME" # your database username
   password = "DB_PASSWORD" # your database user's password
 [[inputs.exec]]
-  commands = ["sudo su -c EVMOS_BIN_NAME -s /bin/bash EVMOS_USER"] # change home and username to the useraccount your validator runs at
+  commands = ["sudo su -c IXO_BIN_NAME -s /bin/bash IXO_USER"] # change home and username to the useraccount your validator runs at
   interval = "15s"
   timeout = "5s"
   data_format = "influx"
@@ -197,8 +197,8 @@ Copy it to config and paste your server name (to do so it is convenient to use t
 
 Dashboard has main cosmos-based node information and common system metrics. There is a description in it.
 
-![Dashboard screenshort01](https://raw.githubusercontent.com/shurinov/mon_evmos/main/resource/01_mon_evmos_grafana_dashboard.png "Dashboard screenshort01")
-![Dashboard screenshort02](https://raw.githubusercontent.com/shurinov/mon_evmos/main/resource/02_mon_evmos_grafana_dashboard.png "Dashboard screenshort02")
+![Dashboard screenshort01](https://raw.githubusercontent.com/svv28/mon_IXO/main/resource/01_mon_evmos_grafana_dashboard.png "Dashboard screenshort01")
+![Dashboard screenshort02](https://raw.githubusercontent.com/svv28/mon_IXO/main/resource/02_mon_evmos_grafana_dashboard.png "Dashboard screenshort02")
 
 ### Mon health
 Complex parameter can show problem concerning receiving metrics from node. Normal value is "OK"
@@ -219,7 +219,7 @@ Number of connected peers
 Validator jailed status. 
 
 ### Missed blocks
-Number of missed blocks in 100 blocks running window. If the validator misses more than 50 blocks, it will end up in jail.
+Number of missed blocks in 10000 blocks running window. If the validator misses more than 500 blocks, it will end up in jail.
 
 ### Bonded status
 Validator stake bonded info
@@ -231,7 +231,7 @@ Validator voting power. If the value of this parameter is zero, your node isn't 
 Number of delegated tokens
 
 ### Version
-Version of evmosd binary
+Version of ixod binary
 
 ### Vali Rank
 Your node stake rank 

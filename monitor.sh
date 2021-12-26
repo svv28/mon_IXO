@@ -7,10 +7,10 @@ source ./mon_var.sh
 now=$(date +%s%N)
 
 # fill header
-logentry="evmos"
+logentry="ixo"
 if [ -n "${COS_VALOPER}" ]; then logentry=$logentry",valoper=${COS_VALOPER}"; fi
 
-# Get evmosd version
+# Get ixo version
 version=$(${COS_BIN_NAME} version 2>&1)
 
 # health is great by default
@@ -70,7 +70,7 @@ else
             if [ $(jq -r '.status' <<<$val_status) == "BOND_STATUS_UNBONDING" ]; then bonded=1; fi
             if [ $(jq -r '.status' <<<$val_status) == "BOND_STATUS_BONDED" ]; then bonded=0; fi
 
-            # Missing blocks number in window (in UMEE slashing window size 100 blocks)
+            # Missing blocks number in window (in IXO slashing window size = 10000 blocks)
             bl_missed=$(jq -r '.missed_blocks_counter' <<<$($COS_BIN_NAME q slashing signing-info $($COS_BIN_NAME tendermint show-validator) -o json --node "tcp://localhost:${COS_PORT_RPC}"))
             # Get validator statistic
             # Our stake value rank (if not in list assign -1 value)
