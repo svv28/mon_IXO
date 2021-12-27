@@ -125,7 +125,7 @@ You should answer some questions about your monitoring service from part **Monit
 
 
 
-#### Manual installation
+#### Manual installation of telegraf and monitoring script
 
 Install telegraf
 ```
