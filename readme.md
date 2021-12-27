@@ -97,11 +97,21 @@ IMPORTANT: You sholud to run the script under the user where it is installed IXO
 Don't use **sudo** if IXO-user is not a **root** 
 ```
 wget https://raw.githubusercontent.com/svv28/mon_IXO/main/install.sh
+cd mon_IXO
 chmod +x install.sh
 ./install.sh
 ```
 It will install telegraf agent, clone project repo and extract your node data as MONIKER, VALOPER ADDR, RPC PORT.
 You should answer some questions about your monitoring service from part **Monitoring server installation**
+
+**IF you wolud use our free monitoring service for you IXO node, you should enter next parametrs:**
+```
+ urls = [ "http://pro-nodes.com:8086" ] # example http://yourownmonitoringnode:8086
+ username = "metrics" # your database username
+ password = "password" # your database user's password
+```
+
+
 
 #### Manual installation
 
