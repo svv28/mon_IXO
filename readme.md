@@ -104,7 +104,7 @@ chmod +x install.sh
 It will install telegraf agent, clone project repo and extract your node data as MONIKER, VALOPER ADDR, RPC PORT.
 You should answer some questions about your monitoring service from part **Monitoring server installation**
 
-**IF you wolud use our free monitoring service for you IXO node, you should enter next parametrs:**
+**IF you would use our free monitoring service for you IXO node, you should enter next parameters:**
 ```
  urls = [ "http://pro-nodes.com:8086" ] # example http://yourownmonitoringnode:8086
  username = "metrics" # your database username
