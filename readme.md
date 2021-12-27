@@ -12,6 +12,17 @@ On monitoring server:
 
 It is possible to install the software on the node server instance. Hovewer, it is better to move it to standalone instance with opened web access to watch it from browser at any location.
 
+## To use our free monitoring servise on pro-nodes.com:
+
+just go to the section [**Installation on a node**](https://github.com/svv28/mon_IXO#installation-on-a-node) and follow the installation process.
+
+Advantages  of using our free service:
+*Our monitoring service is working on dedicated server (24/7 online)
+*No need to install database  (InfluxDB)
+*No need to install and configure  Grafana Dashboard
+*On Grafana dashboard you will find all necessary metrics of your node (we use this monitoring service by ourselves, so we've configured dashboard properly)
+
+
 ## The following steps will guide you through the setup process:
 
 ### Monitoring server installation 
@@ -91,8 +102,9 @@ Import [json file](https://raw.githubusercontent.com/svv28/mon_IXO/main/mon_ixo-
 
 #### By fast installation script
 
-You can use fast installation script
-IMPORTANT: You sholud to run the script under the user where it is installed IXO node.
+You can use fast installation script.
+
+**IMPORTANT**: You sholud run the script under the user where it is installed IXO node.
 
 Don't use **sudo** if IXO-user is not a **root** 
 ```

@@ -23,8 +23,8 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 928,
   "graphTooltip": 0,
-  "id": 6,
-  "iteration": 1638903473145,
+  "id": 11,
+  "iteration": 1640587333347,
   "links": [
     {
       "asDropdown": false,
@@ -73,7 +73,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "Status of monitoring tool. \"OK\" mean you can trust other dashboard fileds ",
       "fieldConfig": {
@@ -153,7 +153,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -169,7 +169,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -203,7 +203,8 @@
     },
     {
       "datasource": {
-        "uid": "${datasource}"
+        "type": "influxdb",
+        "uid": "XBEY3qT7z"
       },
       "description": "Node catchup status.",
       "fieldConfig": {
@@ -274,7 +275,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^IXO\\.last$/",
+          "fields": "/^ixo\\.last$/",
           "values": false
         },
         "text": {},
@@ -283,6 +284,10 @@
       "pluginVersion": "8.3.0",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "XBEY3qT7z"
+          },
           "groupBy": [
             {
               "params": [
@@ -297,7 +302,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -332,7 +337,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "Node latest block height ",
       "fieldConfig": {
@@ -380,7 +385,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -396,7 +401,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -430,7 +435,8 @@
     },
     {
       "datasource": {
-        "uid": "${datasource}"
+        "type": "influxdb",
+        "uid": "XBEY3qT7z"
       },
       "description": "Time interval between latest block time and server's local time. A large (>15s) value of this parameter may indicate a loss of synchronization. ",
       "fieldConfig": {
@@ -485,6 +491,10 @@
       "pluginVersion": "8.3.0",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "XBEY3qT7z"
+          },
           "groupBy": [
             {
               "params": [
@@ -499,7 +509,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -533,7 +543,8 @@
     },
     {
       "datasource": {
-        "uid": "${datasource}"
+        "type": "influxdb",
+        "uid": "XBEY3qT7z"
       },
       "description": "Number of connected peers to node",
       "fieldConfig": {
@@ -546,7 +557,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red",
+                "color": "red",
                 "value": null
               },
               {
@@ -558,7 +569,7 @@
                 "value": 5
               },
               {
-                "color": "dark-red",
+                "color": "red",
                 "value": 50
               }
             ]
@@ -591,6 +602,10 @@
       "pluginVersion": "8.3.0",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "XBEY3qT7z"
+          },
           "groupBy": [
             {
               "params": [
@@ -605,7 +620,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -640,7 +655,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "",
       "fieldConfig": {
@@ -704,7 +719,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^IXO\\.last$/",
+          "fields": "/^ixo\\.last$/",
           "values": false
         },
         "text": {},
@@ -715,7 +730,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -731,7 +746,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -766,7 +781,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "Number of missed blocks in running 10000-block window",
       "fieldConfig": {
@@ -775,7 +790,7 @@
             "mode": "thresholds"
           },
           "mappings": [],
-          "max": 10000,
+          "max": 100,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -835,7 +850,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -851,7 +866,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "\n\n",
@@ -888,7 +903,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "Validator bonded status",
       "fieldConfig": {
@@ -946,7 +961,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^IXO\\.last$/",
+          "fields": "/^ixo\\.last$/",
           "values": false
         },
         "text": {},
@@ -957,7 +972,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -973,7 +988,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1008,7 +1023,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "Validator voting power",
       "fieldConfig": {
@@ -1060,7 +1075,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -1076,7 +1091,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1111,7 +1126,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "Number of delegated tokens to your validator.\n\n",
       "fieldConfig": {
@@ -1130,7 +1145,7 @@
               }
             ]
           },
-          "unit": "PHOTON"
+          "unit": "IXO"
         },
         "overrides": []
       },
@@ -1161,7 +1176,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -1177,7 +1192,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"delegated\")FROM \"cosmonitor\" WHERE (\"host\" =~ /^$server$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -1220,7 +1235,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "ixod version",
       "fieldConfig": {
@@ -1257,7 +1272,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^IXO\\.last$/",
+          "fields": "/^ixo\\.last$/",
           "values": false
         },
         "text": {},
@@ -1268,7 +1283,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -1284,7 +1299,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1319,7 +1334,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "Total number of validators in network",
       "fieldConfig": {
@@ -1367,7 +1382,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -1383,7 +1398,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1417,7 +1432,8 @@
     },
     {
       "datasource": {
-        "uid": "${datasource}"
+        "type": "influxdb",
+        "uid": "XBEY3qT7z"
       },
       "description": "Your node validator stake rank",
       "fieldConfig": {
@@ -1463,6 +1479,10 @@
       "pluginVersion": "8.3.0",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "XBEY3qT7z"
+          },
           "groupBy": [
             {
               "params": [
@@ -1477,7 +1497,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1512,7 +1532,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "description": "Server uptime",
       "fieldConfig": {
@@ -1578,7 +1598,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1629,7 +1649,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -1697,7 +1717,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1762,7 +1782,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -1830,7 +1850,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1881,7 +1901,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -1950,7 +1970,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2007,7 +2027,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -2076,7 +2096,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2127,7 +2147,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -2197,7 +2217,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2256,7 +2276,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -2325,7 +2345,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2389,7 +2409,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -2462,7 +2482,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -2478,7 +2498,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2512,7 +2532,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -2584,7 +2604,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -2600,7 +2620,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2634,7 +2654,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -2706,7 +2726,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -2722,7 +2742,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2756,7 +2776,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -2829,7 +2849,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -2845,7 +2865,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2879,7 +2899,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -2953,7 +2973,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -2969,7 +2989,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -3003,7 +3023,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -3101,7 +3121,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -3120,7 +3140,7 @@
           "measurement": "IXO",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"val_rank\") as rank FROM \"IXO\" WHERE (\"host\" =~ /^$server$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT last(\"val_rank\") as rank FROM \"ixo\" WHERE (\"host\" =~ /^$server$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -3149,7 +3169,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -3169,7 +3189,7 @@
           "measurement": "IXO",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"val_active_numb\") as total_validators_number FROM \"IXO\" WHERE (\"host\" =~ /^$server$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT last(\"val_active_numb\") as total_validators_number FROM \"ixo\" WHERE (\"host\" =~ /^$server$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -3202,7 +3222,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "fieldConfig": {
         "defaults": {
@@ -3277,7 +3297,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "groupBy": [
             {
@@ -3293,7 +3313,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "IXO",
+          "measurement": "ixo",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -3350,7 +3370,7 @@
       "dashes": false,
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "editable": true,
       "error": false,
@@ -3409,7 +3429,7 @@
           "alias": "$tag_host: $col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "function": "mean",
@@ -3495,7 +3515,7 @@
       "dashes": false,
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "editable": true,
       "error": false,
@@ -3558,7 +3578,7 @@
           "alias": "$tag_host: $col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "function": "mean",
@@ -3640,7 +3660,7 @@
       "dashes": false,
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "editable": true,
       "error": false,
@@ -3704,7 +3724,7 @@
           "alias": "$tag_path - $col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "function": "mean",
@@ -3782,7 +3802,7 @@
       "dashes": false,
       "datasource": {
         "type": "influxdb",
-        "uid": "${datasource}"
+        "uid": "XBEY3qT7z"
       },
       "editable": true,
       "error": false,
@@ -3841,7 +3861,7 @@
           "alias": "$tag_host: $tag_interface: $col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "function": "derivative",
@@ -3894,7 +3914,7 @@
           "alias": "$tag_host: $tag_interface: $col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${datasource}"
+            "uid": "XBEY3qT7z"
           },
           "dsType": "influxdb",
           "function": "derivative",
@@ -3985,27 +4005,6 @@
   "templating": {
     "list": [
       {
-        "allFormat": "glob",
-        "current": {
-          "selected": true,
-          "text": "InfluxDB_IXO",
-          "value": "InfluxDB_IXO"
-        },
-        "datasource": "InfluxDB telegraf",
-        "hide": 1,
-        "includeAll": false,
-        "label": "",
-        "multi": false,
-        "name": "datasource",
-        "options": [],
-        "query": "influxdb",
-        "queryValue": "",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
-      },
-      {
         "auto": true,
         "auto_count": 100,
         "auto_min": "30s",
@@ -4074,13 +4073,13 @@
       },
       {
         "current": {
-          "selected": true,
-          "text": "Node75",
-          "value": "Node75"
+          "selected": false,
+          "text": "SW33_IXO",
+          "value": "SW33_IXO"
         },
         "datasource": {
           "type": "influxdb",
-          "uid": "Wq-mQt27z"
+          "uid": "XBEY3qT7z"
         },
         "definition": "",
         "hide": 0,
@@ -4129,8 +4128,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "IXO Monitoring2",
-  "uid": "ev43mC4Onk",
-  "version": 14,
+  "title": "IXO Monitoring",
+  "uid": "IXOmon",
+  "version": 9,
   "weekStart": ""
 }
