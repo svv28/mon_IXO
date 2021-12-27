@@ -23,7 +23,7 @@ Advantages  of using our free service:
 * On Grafana dashboard you will find all necessary metrics of your node (we use this monitoring service by ourselves, so we've configured dashboard properly)
 
 
-## The following steps will guide you through the setup process:
+## The following steps will guide you through the setup process (to configure on your own server):
 
 ### Monitoring server installation 
 
