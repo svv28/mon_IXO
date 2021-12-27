@@ -17,10 +17,10 @@ It is possible to install the software on the node server instance. Hovewer, it 
 just go to the section [**Installation on a node**](https://github.com/svv28/mon_IXO#installation-on-a-node) and follow the installation process.
 
 Advantages  of using our free service:
-*Our monitoring service is working on dedicated server (24/7 online)
-*No need to install database  (InfluxDB)
-*No need to install and configure  Grafana Dashboard
-*On Grafana dashboard you will find all necessary metrics of your node (we use this monitoring service by ourselves, so we've configured dashboard properly)
+* Our monitoring service is working on dedicated server (24/7 online)
+* No need to install database  (InfluxDB)
+* No need to install and configure  Grafana Dashboard
+* On Grafana dashboard you will find all necessary metrics of your node (we use this monitoring service by ourselves, so we've configured dashboard properly)
 
 
 ## The following steps will guide you through the setup process:
