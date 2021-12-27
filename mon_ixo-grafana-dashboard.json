@@ -768,14 +768,14 @@
         "type": "influxdb",
         "uid": "${datasource}"
       },
-      "description": "Number of missed blocks in running 100-block window",
+      "description": "Number of missed blocks in running 10000-block window",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
           "mappings": [],
-          "max": 100,
+          "max": 10000,
           "thresholds": {
             "mode": "absolute",
             "steps": [
